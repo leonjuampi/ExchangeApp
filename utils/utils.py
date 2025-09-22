@@ -2,6 +2,8 @@ import bcrypt
 import re
 from decimal import Decimal
 import requests
+from typing import Optional
+
 
 
 def hash_password(password):
@@ -22,7 +24,7 @@ def validate_password(password):
         return False, "La contraseña debe contener al menos un caracter especial."
     return True, ""
 
-def get_conversion_rate(base: str, target: str) -> Decimal | None:
+def get_conversion_rate(base: str, target: str) -> Optional[Decimal]:
     try:
         response = requests.get(
             "https://api.currencyfreaks.com/latest",
