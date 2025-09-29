@@ -1,25 +1,70 @@
 # ExchangeApp 💱
+---
 
-Aplicación de escritorio desarrollada en **Python 3.9 + PyQt6** para simular un sistema de cuentas en distintas monedas.  
+## 🚀 Requisitos
+
+- **Python 3.9.x** (probado en 3.9.13)
+- **MySQL** en local
+- Dependencias listadas en `requirements.txt`
 
 ---
 
-## 📌 Funcionalidades
+## ⚙️ Instalación
 
-- Registro de usuarios con contraseña hasheada.
-- Inicio de sesión (login).
-- Pantalla principal con:
-  - Depósito en ARS.
-  - Compra de monedas extranjeras.
-  - Venta de monedas.
-  - Visualización de saldos.
-- Ventanas de diálogo para confirmar operaciones.
-- Persistencia en **MySQL** mediante **SQLObject ORM**.
+1. **Clonar el repositorio**
 
----
+```bash
+git clone https://github.com/leonjuampi/exchangeapp.git
+cd exchangeapp
+```
+2. **Crear y activar entorno virtual**
 
-## 🗂️ Estructura de carpetas
+```bash
+python -m venv .venv
+.venv\Scripts\activate   
+```
+3. **Instalar dependencias**
 
+```bash
+pip install -r requirements.txt
+```
+
+## 🛢️ Base de datos
+
+1. **Crear la base de datos**
+```bash
+CREATE DATABASE exchangeApp;
+```
+
+2. **Importar el dump incluido**
+```bash
+mmysql -u root -p ExchangeApp < dump.sql
+```
+
+3. **Verificar credenciales en**
+```bash
+dataAccess/data_access.py:
+```
+
+**Por defecto:**
+```bash
+'mysql+pymysql://user:pass@localhost/exchangeApp?charset=utf8mb4'
+```
+
+## ▶️ Ejecución
+```bash
+python -m presentation.qt_app
+```
+
+🖥️ Pantallas
+Login: ingresar usuario/contraseña o registrarse.
+Registro: crear un nuevo usuario.
+Principal: menú con botones para depositar, comprar, vender y ver saldos.
+Diálogos: ventanas modales para confirmar cada operación.
+
+## 📂 Estructura del proyecto
+```bash
+.
 TP 3RA ETAPA/
 │
 ├── bussiness/ # Lógica de negocio (login, depósitos, compra/venta)
@@ -38,57 +83,19 @@ TP 3RA ETAPA/
 ├── dump.sql # Script SQL inicial (si aplica)
 ├── requirements.txt # Dependencias del proyecto
 └── README.md
+```
 
----
+## ✅ Funcionalidades
 
-## ⚙️ Requisitos
+- Registro de usuarios con contraseña hasheada.
+- Inicio de sesión (login).
+- Pantalla principal con:
+  - Depósito en ARS.
+  - Compra de monedas extranjeras.
+  - Venta de monedas.
+  - Visualización de saldos.
+- Ventanas de diálogo para confirmar operaciones.
+- Persistencia en **MySQL** mediante **SQLObject ORM**.
 
-- **Python 3.9.x** (probado en 3.9.13)
-- **MySQL** en local
-- Dependencias listadas en `requirements.txt`
 
----
-
-## 🚀 Instalación y ejecución
-
-1. **Clonar el repo**
-   ```bash
-   git clone https://github.com/tuusuario/exchangeapp.git
-   cd exchangeapp
-
-2. **Crear entorno virtual**
-python -m venv .venv
-
-3. **Activar entorno**
-.venv\Scripts\Activate
-
-4. **Instalar Dependencias**
-pip install -r requirements.txt
-
-5. **Configurar la base de datos MySQL**
-CREATE DATABASE exchangeApp;
-
-5. **Configurar la base de datos MySQL**
-Revisar credenciales en dataAccess/data_access.py:
-database = 'mysql+pymysql://user:pass@localhost/exchangeApp?charset=utf8mb4'
-
-5. **Configurar la base de datos MySQL**
-Importar el dump incluido
-bash
-mmysql -u root -p ExchangeApp < dump.sql
-
-6. **Configurar la base de datos MySQL**
-python -m presentation.qt_app
-
-----
-
-🖥️ Pantallas
-
-Login: ingresar usuario/contraseña o registrarse.
-
-Registro: crear un nuevo usuario.
-
-Principal: menú con botones para depositar, comprar, vender y ver saldos.
-
-Diálogos: ventanas modales para confirmar cada operación.
 
