@@ -56,11 +56,11 @@ dataAccess/data_access.py:
 python -m presentation.qt_app
 ```
 
-🖥️ Pantallas
-Login: ingresar usuario/contraseña o registrarse.
-Registro: crear un nuevo usuario.
-Principal: menú con botones para depositar, comprar, vender y ver saldos.
-Diálogos: ventanas modales para confirmar cada operación.
+## 🖥️ Pantallas
+- Login: ingresar usuario/contraseña o registrarse.
+- Registro: crear un nuevo usuario.
+- Principal: menú con botones para depositar, comprar, vender y ver saldos.
+- Diálogos: ventanas modales para confirmar cada operación.
 
 ## 📂 Estructura del proyecto
 ```bash
