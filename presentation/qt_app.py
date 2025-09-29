@@ -57,6 +57,10 @@ class VenderDialog(QDialog):
         super().__init__(parent)
         self.ui = UiVender()
         self.ui.setupUi(self)
+
+        self.ui.btnOkCancelVender.accepted.connect(self.accept)
+        self.ui.btnOkCancelVender.rejected.connect(self.reject)
+
         self.ui.txtMonedaVender.setPlaceholderText("Moneda a vender (USD/EUR/...)")
         self.ui.txtMontoVender.setPlaceholderText("Monto a vender (en esa moneda)")
         self.ui.txtMontoVender.setValidator(QDoubleValidator(0.0, 10**12, 6, self))
