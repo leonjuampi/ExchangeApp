@@ -129,7 +129,7 @@ class PrincipalView(QWidget):
         self.ui.setupUi(self)
 
 
-        self.ui.Welcome.setText(f"Bienvenido!  ({self.user})")
+        self.ui.Welcome.setText(f"Bienvenido!  {self.user}")
 
 
         self.ui.tableSaldos.setColumnCount(2)
